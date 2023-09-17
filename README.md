@@ -8,4 +8,6 @@ If the other player turns their head in the same direction you have pointed, you
 source: https://www.90daykorean.com/korean-games/#cham-cham-cham
 
 ## Where is the cat?
-Yes.
+#### Right here, ready to win!
+
+![fattest of them all](assets/cat/2.png)
