@@ -53,7 +53,7 @@ function didTheCatWin(catWon) {
             catImage.src = "assets/cat/wincat.jpg";
             break;
         case false:            
-            catImage.src = "assets/cat/losecat.jpg";
+            catImage.src = "assets/cat/sadcat.jpg";
             break;  
         default:        
             catImage.src = "assets/cat/front.jpg";
@@ -63,12 +63,12 @@ function didTheCatWin(catWon) {
 async function playRound(playerDirection, catDirection) {
     if (playerDirection === catDirection) {
         updateScore("player-score");
-        await delay(3000);
+        await delay(2000);
         didTheCatWin(false);
 
     } else {
         updateScore("cat-score");
-        await delay(3000);
+        await delay(2000);
         didTheCatWin(true);
     }
 
