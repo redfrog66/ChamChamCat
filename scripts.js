@@ -63,12 +63,12 @@ function didTheCatWin(catWon) {
 async function playRound(playerDirection, catDirection) {
     if (playerDirection === catDirection) {
         updateScore("player-score");
-        await delay(2000);
+        await delay(1000);
         didTheCatWin(false);
 
     } else {
         updateScore("cat-score");
-        await delay(2000);
+        await delay(1000);
         didTheCatWin(true);
     }
 
