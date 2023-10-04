@@ -2,13 +2,9 @@
 
 const directions = ["left", "right", "up"];
 
-const leftButton = document.getElementById("left");
-const upButton = document.getElementById("up");
-const rightButton = document.getElementById("right");
-const catImage = document.getElementById("catImage");
-
 let playerScore = 0;
 let catScore = 0;
+const catWon = false;
 
 // függvények
 // kezdő cicakép beállítása
@@ -51,32 +47,39 @@ function updateScore(id) {
    
 }
 
+function didTheCatWin(catWon) {
+    switch(catWon) {
+        case true:
+            catImage.src = "assets/cat/win.jpg";
+            break;
+        case false:            
+            catImage.src = "assets/cat/lose.jpg";
+            break;  
+        default:        
+            catImage.src = "assets/cat/front.jpg";
+    }
+}   
+
 function playRound(playerDirection, catDirection) {
     if (playerDirection === catDirection) {
         updateScore("player-score");
+        catWon = false;
     } else {
         updateScore("cat-score");
+        catWon = true;
     }
 }
-
-function playGame(playerDirection) {
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function playGame(playerDirection) {
     setInitialImage();
     const catDirection = generateRandomDirection();
     updateImage(catDirection);
+
     playRound(playerDirection, catDirection);
+    await delay(3000);
+    didTheCatWin(catWon);
 }
 
-// események
-window.addEventListener("load", setInitialImage);
 
-leftButton.addEventListener("click", () => {
-    playGame("left");
-});
-
-upButton.addEventListener("click", () => {
-    playGame("up");
-});
-
-rightButton.addEventListener("click", () => {
-    playGame("right");
-});
