@@ -4,12 +4,12 @@ const directions = ["left", "right", "up"];
 
 let playerScore = 0;
 let catScore = 0;
-const catWon = false;
+
 
 // függvények
 // kezdő cicakép beállítása
 function setInitialImage() {
-    catImage.src = "assets/cat/front.jpg";
+    catImage.src = "assets/cat/front.png";
 }
 
 // random irány generálása, ez lesz a számítógép által választott irány
@@ -50,13 +50,13 @@ function updateScore(id) {
 function didTheCatWin(catWon) {
     switch(catWon) {
         case true:
-            catImage.src = "assets/cat/wincat.jpg";
+            catImage.src = "assets/cat/wincat.png";
             break;
         case false:            
-            catImage.src = "assets/cat/sadcat.jpg";
+            catImage.src = "assets/cat/sadcat.png";
             break;  
         default:        
-            catImage.src = "assets/cat/front.jpg";
+            catImage.src = "assets/cat/front.png";
     }
 }   
 
