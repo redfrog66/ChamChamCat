@@ -50,24 +50,28 @@ function updateScore(id) {
 function didTheCatWin(catWon) {
     switch(catWon) {
         case true:
-            catImage.src = "assets/cat/win.jpg";
+            catImage.src = "assets/cat/wincat.jpg";
             break;
         case false:            
-            catImage.src = "assets/cat/lose.jpg";
+            catImage.src = "assets/cat/losecat.jpg";
             break;  
         default:        
             catImage.src = "assets/cat/front.jpg";
     }
 }   
 
-function playRound(playerDirection, catDirection) {
+async function playRound(playerDirection, catDirection) {
     if (playerDirection === catDirection) {
         updateScore("player-score");
-        catWon = false;
+        await delay(3000);
+        didTheCatWin(false);
+
     } else {
         updateScore("cat-score");
-        catWon = true;
+        await delay(3000);
+        didTheCatWin(true);
     }
+
 }
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -76,10 +80,7 @@ async function playGame(playerDirection) {
     setInitialImage();
     const catDirection = generateRandomDirection();
     updateImage(catDirection);
-
     playRound(playerDirection, catDirection);
-    await delay(3000);
-    didTheCatWin(catWon);
 }
 
 
