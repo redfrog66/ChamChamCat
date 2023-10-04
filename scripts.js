@@ -59,8 +59,8 @@ function playRound(playerDirection, catDirection) {
     }
 }
 
-function playGame() {
-    const playerDirection = button.id;
+function playGame(playerDirection) {
+    setInitialImage();
     const catDirection = generateRandomDirection();
     updateImage(catDirection);
     playRound(playerDirection, catDirection);
@@ -80,5 +80,3 @@ upButton.addEventListener("click", () => {
 rightButton.addEventListener("click", () => {
     playGame("right");
 });
-
-
